@@ -92,6 +92,7 @@ namespace DoAn
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Size = new System.Drawing.Size(207, 22);
             this.txtpassword.TabIndex = 1;
+            this.txtpassword.Text = "123456";
             this.txtpassword.UseSystemPasswordChar = true;
             // 
             // label2
@@ -118,6 +119,7 @@ namespace DoAn
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(207, 22);
             this.txtusername.TabIndex = 1;
+            this.txtusername.Text = "hung";
             // 
             // label1
             // 

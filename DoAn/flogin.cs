@@ -19,13 +19,27 @@ namespace DoAn
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            tablemanagerment result = new tablemanagerment();
-            this.Hide();
-            result.ShowDialog();
-            this.Show();
+            string username = txtusername.Text;
+            string password = txtpassword.Text;
+            if (Login(username,password))
+            {
+                tablemanagerment result = new tablemanagerment();
+                this.Hide();
+                result.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu");
+            }
+           
 
         }
 
+        private bool Login(string username,string password)
+        {
+            return DAO.AccountProvider.Instance.Login(username, password);
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
