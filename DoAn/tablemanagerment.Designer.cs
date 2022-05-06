@@ -37,7 +37,9 @@ namespace DoAn
             this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hợpĐồngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_hopdong_xemtatca = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox_categorybySochoNgoi = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel_HopDOng = new System.Windows.Forms.FlowLayoutPanel();
@@ -55,14 +57,10 @@ namespace DoAn
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1_scmnd_hopdong = new System.Windows.Forms.TextBox();
-            this.btn_ThanhToanHD = new System.Windows.Forms.Button();
             this.Btn_AddHD = new System.Windows.Forms.Button();
-            this.btn_EditHD = new System.Windows.Forms.Button();
-            this.btn_RemoveHD = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1_HopDong = new System.Windows.Forms.ComboBox();
+            this.comboBox1_HopDong_Khachang = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_hopdong_xemtatca = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,7 +82,7 @@ namespace DoAn
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 26);
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.adminToolStripMenuItem.Text = "Admin";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
@@ -94,7 +92,7 @@ namespace DoAn
             this.thôngTinCáNhânToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem});
             this.thôngTinTToolStripMenuItem.Name = "thôngTinTToolStripMenuItem";
-            this.thôngTinTToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.thôngTinTToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
             this.thôngTinTToolStripMenuItem.Text = " Thông tin tài khoản";
             // 
             // thôngTinCáNhânToolStripMenuItem
@@ -115,9 +113,10 @@ namespace DoAn
             // 
             this.quảnLýToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kháchHàngToolStripMenuItem,
-            this.otoToolStripMenuItem});
+            this.otoToolStripMenuItem,
+            this.hợpĐồngToolStripMenuItem});
             this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
+            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.quảnLýToolStripMenuItem.Text = "Quản Lý";
             // 
             // kháchHàngToolStripMenuItem
@@ -132,6 +131,13 @@ namespace DoAn
             this.otoToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
             this.otoToolStripMenuItem.Text = "Oto";
             // 
+            // hợpĐồngToolStripMenuItem
+            // 
+            this.hợpĐồngToolStripMenuItem.Name = "hợpĐồngToolStripMenuItem";
+            this.hợpĐồngToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.hợpĐồngToolStripMenuItem.Text = "Hợp Đồng";
+            this.hợpĐồngToolStripMenuItem.Click += new System.EventHandler(this.hợpĐồngToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button_hopdong_xemtatca);
@@ -141,8 +147,18 @@ namespace DoAn
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(12, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1350, 680);
+            this.panel1.Size = new System.Drawing.Size(1350, 561);
             this.panel1.TabIndex = 1;
+            // 
+            // button_hopdong_xemtatca
+            // 
+            this.button_hopdong_xemtatca.Location = new System.Drawing.Point(303, 18);
+            this.button_hopdong_xemtatca.Name = "button_hopdong_xemtatca";
+            this.button_hopdong_xemtatca.Size = new System.Drawing.Size(89, 28);
+            this.button_hopdong_xemtatca.TabIndex = 9;
+            this.button_hopdong_xemtatca.Text = "Tất cả";
+            this.button_hopdong_xemtatca.UseVisualStyleBackColor = true;
+            this.button_hopdong_xemtatca.Click += new System.EventHandler(this.button_hopdong_xemtatca_Click);
             // 
             // label6
             // 
@@ -167,7 +183,7 @@ namespace DoAn
             this.flowLayoutPanel_HopDOng.AutoScroll = true;
             this.flowLayoutPanel_HopDOng.Location = new System.Drawing.Point(3, 56);
             this.flowLayoutPanel_HopDOng.Name = "flowLayoutPanel_HopDOng";
-            this.flowLayoutPanel_HopDOng.Size = new System.Drawing.Size(678, 613);
+            this.flowLayoutPanel_HopDOng.Size = new System.Drawing.Size(668, 503);
             this.flowLayoutPanel_HopDOng.TabIndex = 6;
             // 
             // panel2
@@ -180,16 +196,13 @@ namespace DoAn
             this.panel2.Controls.Add(this.dateTimePicker_NgayThueHD);
             this.panel2.Controls.Add(this.listView_HopDong);
             this.panel2.Controls.Add(this.textBox1_scmnd_hopdong);
-            this.panel2.Controls.Add(this.btn_ThanhToanHD);
             this.panel2.Controls.Add(this.Btn_AddHD);
-            this.panel2.Controls.Add(this.btn_EditHD);
-            this.panel2.Controls.Add(this.btn_RemoveHD);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.comboBox1_HopDong);
+            this.panel2.Controls.Add(this.comboBox1_HopDong_Khachang);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(687, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(660, 674);
+            this.panel2.Size = new System.Drawing.Size(660, 556);
             this.panel2.TabIndex = 0;
             // 
             // label5
@@ -228,6 +241,8 @@ namespace DoAn
             // 
             // dateTimePicker_NgayTraHD
             // 
+            this.dateTimePicker_NgayTraHD.CustomFormat = "ddd/dd/MM/yyyy";
+            this.dateTimePicker_NgayTraHD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_NgayTraHD.Location = new System.Drawing.Point(216, 148);
             this.dateTimePicker_NgayTraHD.Name = "dateTimePicker_NgayTraHD";
             this.dateTimePicker_NgayTraHD.Size = new System.Drawing.Size(309, 22);
@@ -235,6 +250,8 @@ namespace DoAn
             // 
             // dateTimePicker_NgayThueHD
             // 
+            this.dateTimePicker_NgayThueHD.CustomFormat = "ddd/dd/MM/yyyy";
+            this.dateTimePicker_NgayThueHD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_NgayThueHD.Location = new System.Drawing.Point(216, 105);
             this.dateTimePicker_NgayThueHD.Name = "dateTimePicker_NgayThueHD";
             this.dateTimePicker_NgayThueHD.Size = new System.Drawing.Size(309, 22);
@@ -252,7 +269,7 @@ namespace DoAn
             this.listView_HopDong.HideSelection = false;
             this.listView_HopDong.Location = new System.Drawing.Point(3, 247);
             this.listView_HopDong.Name = "listView_HopDong";
-            this.listView_HopDong.Size = new System.Drawing.Size(654, 351);
+            this.listView_HopDong.Size = new System.Drawing.Size(654, 210);
             this.listView_HopDong.TabIndex = 6;
             this.listView_HopDong.UseCompatibleStateImageBehavior = false;
             this.listView_HopDong.View = System.Windows.Forms.View.Details;
@@ -260,27 +277,27 @@ namespace DoAn
             // columnHeader1
             // 
             this.columnHeader1.Text = "Mã Xe";
-            this.columnHeader1.Width = 106;
+            this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Tên Xe";
-            this.columnHeader2.Width = 155;
+            this.columnHeader2.Width = 100;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Hãng Xe";
-            this.columnHeader3.Width = 129;
+            this.columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Biển Số Xe";
-            this.columnHeader4.Width = 128;
+            this.columnHeader4.Width = 100;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Số Chỗ Ngồi";
-            this.columnHeader5.Width = 94;
+            this.columnHeader5.Width = 100;
             // 
             // textBox1_scmnd_hopdong
             // 
@@ -290,41 +307,15 @@ namespace DoAn
             this.textBox1_scmnd_hopdong.Size = new System.Drawing.Size(309, 22);
             this.textBox1_scmnd_hopdong.TabIndex = 3;
             // 
-            // btn_ThanhToanHD
-            // 
-            this.btn_ThanhToanHD.Location = new System.Drawing.Point(444, 622);
-            this.btn_ThanhToanHD.Name = "btn_ThanhToanHD";
-            this.btn_ThanhToanHD.Size = new System.Drawing.Size(107, 52);
-            this.btn_ThanhToanHD.TabIndex = 5;
-            this.btn_ThanhToanHD.Text = "Thanh Toán";
-            this.btn_ThanhToanHD.UseVisualStyleBackColor = true;
-            // 
             // Btn_AddHD
             // 
-            this.Btn_AddHD.Location = new System.Drawing.Point(39, 622);
+            this.Btn_AddHD.Location = new System.Drawing.Point(3, 480);
             this.Btn_AddHD.Name = "Btn_AddHD";
             this.Btn_AddHD.Size = new System.Drawing.Size(88, 52);
             this.Btn_AddHD.TabIndex = 2;
             this.Btn_AddHD.Text = "Tạo";
             this.Btn_AddHD.UseVisualStyleBackColor = true;
-            // 
-            // btn_EditHD
-            // 
-            this.btn_EditHD.Location = new System.Drawing.Point(171, 622);
-            this.btn_EditHD.Name = "btn_EditHD";
-            this.btn_EditHD.Size = new System.Drawing.Size(90, 52);
-            this.btn_EditHD.TabIndex = 3;
-            this.btn_EditHD.Text = "Chỉnh Sửa";
-            this.btn_EditHD.UseVisualStyleBackColor = true;
-            // 
-            // btn_RemoveHD
-            // 
-            this.btn_RemoveHD.Location = new System.Drawing.Point(281, 622);
-            this.btn_RemoveHD.Name = "btn_RemoveHD";
-            this.btn_RemoveHD.Size = new System.Drawing.Size(137, 52);
-            this.btn_RemoveHD.TabIndex = 4;
-            this.btn_RemoveHD.Text = "Xóa Hợp Đồng";
-            this.btn_RemoveHD.UseVisualStyleBackColor = true;
+            this.Btn_AddHD.Click += new System.EventHandler(this.Btn_AddHD_Click);
             // 
             // label2
             // 
@@ -335,14 +326,14 @@ namespace DoAn
             this.label2.TabIndex = 2;
             this.label2.Text = "Số Chứng Minh Nhân Dân";
             // 
-            // comboBox1_HopDong
+            // comboBox1_HopDong_Khachang
             // 
-            this.comboBox1_HopDong.FormattingEnabled = true;
-            this.comboBox1_HopDong.Location = new System.Drawing.Point(216, 18);
-            this.comboBox1_HopDong.Name = "comboBox1_HopDong";
-            this.comboBox1_HopDong.Size = new System.Drawing.Size(309, 24);
-            this.comboBox1_HopDong.TabIndex = 1;
-            this.comboBox1_HopDong.SelectedValueChanged += new System.EventHandler(this.comboBox1_HopDong_SelectedValueChanged);
+            this.comboBox1_HopDong_Khachang.FormattingEnabled = true;
+            this.comboBox1_HopDong_Khachang.Location = new System.Drawing.Point(216, 18);
+            this.comboBox1_HopDong_Khachang.Name = "comboBox1_HopDong_Khachang";
+            this.comboBox1_HopDong_Khachang.Size = new System.Drawing.Size(309, 24);
+            this.comboBox1_HopDong_Khachang.TabIndex = 1;
+            this.comboBox1_HopDong_Khachang.SelectedValueChanged += new System.EventHandler(this.comboBox1_HopDong_SelectedValueChanged);
             // 
             // label1
             // 
@@ -353,21 +344,11 @@ namespace DoAn
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên Khách Hàng";
             // 
-            // button_hopdong_xemtatca
-            // 
-            this.button_hopdong_xemtatca.Location = new System.Drawing.Point(303, 18);
-            this.button_hopdong_xemtatca.Name = "button_hopdong_xemtatca";
-            this.button_hopdong_xemtatca.Size = new System.Drawing.Size(89, 28);
-            this.button_hopdong_xemtatca.TabIndex = 9;
-            this.button_hopdong_xemtatca.Text = "Tất cả";
-            this.button_hopdong_xemtatca.UseVisualStyleBackColor = true;
-            this.button_hopdong_xemtatca.Click += new System.EventHandler(this.button_hopdong_xemtatca_Click);
-            // 
             // tablemanagerment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1374, 742);
+            this.ClientSize = new System.Drawing.Size(1374, 612);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -394,16 +375,13 @@ namespace DoAn
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_ThanhToanHD;
-        private System.Windows.Forms.Button btn_RemoveHD;
-        private System.Windows.Forms.Button btn_EditHD;
         private System.Windows.Forms.Button Btn_AddHD;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripMenuItem kháchHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otoToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1_scmnd_hopdong;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1_HopDong;
+        private System.Windows.Forms.ComboBox comboBox1_HopDong_Khachang;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_HopDOng;
         private System.Windows.Forms.ListView listView_HopDong;
@@ -421,5 +399,6 @@ namespace DoAn
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox_categorybySochoNgoi;
         private System.Windows.Forms.Button button_hopdong_xemtatca;
+        private System.Windows.Forms.ToolStripMenuItem hợpĐồngToolStripMenuItem;
     }
 }

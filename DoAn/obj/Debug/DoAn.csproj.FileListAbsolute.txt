@@ -11,3 +11,4 @@ C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.tablemanager
 C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fAccountProfile.resources
 C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.Flogin.resources
 C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fadmin.resources
+C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fhopdong.resources

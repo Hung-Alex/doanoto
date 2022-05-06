@@ -25,7 +25,7 @@ namespace DoAn.DAO
         }
         private KhachHangDAO() { }
 
-        public List<DTO.KhachHang> GetListKhacHang()
+        public List<DTO.KhachHang> GetListKhachHang()
         {
             List<DTO.KhachHang> khachHangs = new List<DTO.KhachHang>();
             DataTable data = DAO.DataProvider.Instance.ExecuteQuery("select * from KHACHHANG");
@@ -37,6 +37,5 @@ namespace DoAn.DAO
             return khachHangs;
         }
 
-        
     }
 }

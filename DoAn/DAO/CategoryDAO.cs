@@ -35,5 +35,26 @@ namespace DoAn.DAO
             }
             return result;
         }
+        public List<string> getListTenKhachHang()
+        {
+            List<string> listKH = new List<string>();
+            DataTable data = DAO.DataProvider.Instance.ExecuteQuery("select TenKhachHang from KHACHHANG");
+            foreach (DataRow item in data.Rows)
+            {
+                listKH.Add(item["TenKhachHang"].ToString());
+            }
+            return listKH;
+        }
+        public List<string> getListTenXe()
+        {
+            List<string> listTenXe = new List<string>();
+            DataTable data = DAO.DataProvider.Instance.ExecuteQuery(" select TenXe from OTO");
+            foreach (DataRow item in data.Rows)
+            {
+                listTenXe.Add(item["TenXe"].ToString());
+            }
+            return listTenXe;
+        }
+
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -91,8 +92,8 @@ namespace DoAn
             
         void loadKhacHang()
         {
-            comboBox1_HopDong.DataSource = DAO.KhachHangDAO.Instance.GetListKhacHang();
-            comboBox1_HopDong.DisplayMember = "TenKH";
+            comboBox1_HopDong_Khachang.DataSource = DAO.KhachHangDAO.Instance.GetListKhachHang();
+            comboBox1_HopDong_Khachang.DisplayMember = "TenKH";
         }
         
 
@@ -105,6 +106,7 @@ namespace DoAn
             otoItem.SubItems.Add(Oto.HangXe);
             otoItem.SubItems.Add(Oto.BienSoXe);
             otoItem.SubItems.Add(Oto.SoChoNgoi.ToString());
+            otoItem.Tag = Oto;
             listView_HopDong.Items.Add(otoItem);
         }
         void  loadOptionsSochoNgoi()
@@ -139,6 +141,10 @@ namespace DoAn
         private void comboBox1_HopDong_SelectedValueChanged(object sender, EventArgs e)
         {
             ComboBox result = sender as ComboBox;
+            if(result.SelectedIndex==-1)
+            {
+                return;
+            }
             textBox1_scmnd_hopdong.Text = (result.SelectedValue as DTO.KhachHang).SCMND; 
         }
         private void comboBox_categorybySochoNgoi_SelectedValueChanged(object sender, EventArgs e)
@@ -154,6 +160,60 @@ namespace DoAn
         private void button_hopdong_xemtatca_Click(object sender, EventArgs e)
         {
             loadOto();
+        }
+
+        private void Btn_AddHD_Click(object sender, EventArgs e)
+        {
+
+
+            listView_HopDong.FullRowSelect = true;
+            DateTime ngayThueHopDong = dateTimePicker_NgayThueHD.Value;
+            DateTime ngayTraHopDong = dateTimePicker_NgayTraHD.Value;
+            MessageBox.Show(ngayThueHopDong.ToString());
+            int tienthue ;
+            if (int.TryParse(textBox_TienThueHopDong.Text.ToString(),out tienthue)==false)
+            {
+                MessageBox.Show("vui lòng nhập đúng tiền thuê không có chữ hoặc ký tự");
+                return;
+            }
+            string makh = (comboBox1_HopDong_Khachang.SelectedValue as DTO.KhachHang).MaKH;
+            string maxe = "";
+            foreach (ListViewItem item in listView_HopDong.Items)
+            {
+                maxe += (item.Tag as DTO.Oto).MaXe;
+            }
+            if (maxe=="")
+            {
+                MessageBox.Show("Vui lòng chọn xe muốn thuê");
+                return;
+            }
+            if (DAO.HopDongDAO.Instance.insertHopDong(tienthue, ngayThueHopDong, ngayTraHopDong, maxe, makh)>0)
+            {
+                MessageBox.Show("succsess");
+
+            }
+            else
+            {
+                MessageBox.Show("false");
+
+            }
+            
+
+
+
+        }
+
+        private void listView_HopDong_MouseClick(object sender, MouseEventArgs e)
+        {
+            listView_HopDong.FullRowSelect = true;
+            string name = listView_HopDong.SelectedItems[0].Text;
+            MessageBox.Show(name);
+        }
+
+        private void hợpĐồngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fhopdong nForm = new fhopdong();
+            nForm.ShowDialog();
         }
     }
 }
