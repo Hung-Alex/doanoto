@@ -24,9 +24,17 @@ namespace DoAn.DAO
         }
         private HoaDonDAO() { }
 
-        public int InsertHoaDon( int tongtien,string makh,string maxe)
+        public int InsertHoaDon( int tongtien,string makh,string maxe,string mahopdong)
         {
-            return DAO.DataProvider.Instance.ExecuteNonQuery($" exec dbo.usp_InsertBill '{DateTime.Now}' ,'{tongtien}' ,'{makh}' ,'{maxe}'");
+            return DAO.DataProvider.Instance.ExecuteNonQuery($" exec dbo.usp_InsertBill '{DateTime.Now}' ,'{tongtien}' ,'{makh}' ,'{maxe}','{mahopdong}'");
+        }
+        public int removeHoaDonByMaHopDong(string mahopdong)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery("exec dbo.usp_RemoveHoaDonByMaHD @mahopdong",new object[] { mahopdong});
+        }
+        public int removeHoaDonByMaHopDongForRemoveAll(string mahopdong)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery("exec dbo.usp_RemoveHoaDonByMaHopDongForRemoveAll @mahd", new object[] { mahopdong });
         }
     }
 }

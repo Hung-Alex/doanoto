@@ -12,3 +12,4 @@ C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fAccountProf
 C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.Flogin.resources
 C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fadmin.resources
 C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fhopdong.resources
+C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fKhachHang.resources

@@ -219,5 +219,11 @@ namespace DoAn
             fhopdong nForm = new fhopdong();
             nForm.ShowDialog();
         }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fKhachHang fresult = new fKhachHang();
+            fresult.ShowDialog();
+        }
     }
 }

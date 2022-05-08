@@ -21,14 +21,35 @@ namespace DoAn
             loadHinhThuc();
             loadComboboxTenXe();
             loadHopDong();
-            setEnable(false);
+            SetEnable(false, true,true);
+
+
         }
 
         #region Events
         private void button1_qledithd_Click(object sender, EventArgs e)
         {
+            Button getText = sender as Button;
+            if (getText.Text=="Chỉnh Sửa")
+            {
+                getText.Text = "Hủy";
+                SetEnable(true, false,false);
+            }
+            else
+            {
+                getText.Text = "Chỉnh Sửa";
+                SetEnable(false, true, true);
+            }
             
-            
+
+        }
+        void SetEnable(bool checkfalse,bool checktrue,bool checkthanhtoan)
+        {
+            panel4_qlturnonedithd.Enabled = checkfalse;
+            button1_qlcapnhathd.Enabled = checkfalse;
+            button1_qlThanhtoanHd.Enabled = checktrue;
+            button_qlremovehopdong.Enabled = checkthanhtoan;
+
         }
         private void comboBox1_qlcategorykhachhanghd_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -82,13 +103,14 @@ namespace DoAn
 
         private void button1_qlThanhtoanHd_Click(object sender, EventArgs e)
         {
-            int tienthue;
-            if (int.TryParse(textBox4_qltienthuehd.Text,out tienthue)==false)
+
+            
+            if (textBox1_qlmahopdong.Text==null|| textBox1_qlmahopdong.Text == "")
             {
-                MessageBox.Show("Tiền thuê vui lòng nhập số");
+                MessageBox.Show("vui lòng chọn hợp đồng để thanh toán");
                 return;
             }
-            if (DAO.HoaDonDAO.Instance.InsertHoaDon(tienthue,textBox1_qlmakh.Text,textBox2_qlmaxeotohd.Text)>0)
+            if (DAO.HoaDonDAO.Instance.InsertHoaDon(int.Parse(textBox4_qltienthuehd.Text),textBox1_qlmakh.Text,textBox2_qlmaxeotohd.Text,textBox1_qlmahopdong.Text)>0)
             {
                 MessageBox.Show("Success");
                 DAO.HopDongDAO.Instance.updateHopDong(textBox1_qlmahopdong.Text);
@@ -111,10 +133,7 @@ namespace DoAn
         #endregion
 
         #region method
-        void setEnable(bool check)
-        {
-            panel4_qlturnonedithd.Enabled = check;
-        }
+        
         public void loadComboboxTenKH()
         {
             comboBox1_qlcategorykhachhanghd.DataSource = DAO.CategoryDAO.Instance.getListTenKhachHang();
@@ -214,6 +233,7 @@ namespace DoAn
         private void button_qlremovehopdong_Click(object sender, EventArgs e)
         {
             string mahd = textBox1_qlmahopdong.Text;
+            DAO.HoaDonDAO.Instance.removeHoaDonByMaHopDongForRemoveAll(mahd);
 
             if (DAO.HopDongDAO.Instance.removeHopDong(mahd.Trim())>0) 
             {
@@ -239,6 +259,25 @@ namespace DoAn
             {
                 MessageBox.Show("update success");
                 loadHopDong();
+                button1_qledithd.Text = "Chỉnh Sửa";
+                SetEnable(false, true,true);
+                if (comboBox_qlhinhthucHdfEdit.Text=="Chưa Thanh Toán")
+                {
+                    DAO.HoaDonDAO.Instance.removeHoaDonByMaHopDong(textBox1_qlmahopdong.Text);
+                }
+                else
+                {
+                    try
+                    {
+                        DAO.HoaDonDAO.Instance.InsertHoaDon(int.Parse(textBox4_qltienthuehd.Text), textBox1_qlmakh.Text, textBox2_qlmaxeotohd.Text, textBox1_qlmahopdong.Text);
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                   
+                }
             }
             else
             {
