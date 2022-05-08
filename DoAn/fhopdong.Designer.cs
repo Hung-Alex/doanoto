@@ -31,7 +31,10 @@ namespace DoAn
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button_qlremovehopdong = new System.Windows.Forms.Button();
             this.panel4_qlturnonedithd = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBox_qlhinhthucHdfEdit = new System.Windows.Forms.ComboBox();
             this.textBox2_qlmaxeotohd = new System.Windows.Forms.TextBox();
             this.textBox1_qlmakh = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -68,8 +71,6 @@ namespace DoAn
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1_qlcategorykhachhanghd = new System.Windows.Forms.ComboBox();
-            this.comboBox_qlhinhthucHdfEdit = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4_qlturnonedithd.SuspendLayout();
@@ -82,19 +83,30 @@ namespace DoAn
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1667, 561);
+            this.panel1.Size = new System.Drawing.Size(1802, 598);
             this.panel1.TabIndex = 0;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.button_qlremovehopdong);
             this.panel3.Controls.Add(this.panel4_qlturnonedithd);
             this.panel3.Controls.Add(this.button1_qlcapnhathd);
             this.panel3.Controls.Add(this.button1_qlThanhtoanHd);
             this.panel3.Controls.Add(this.button1_qledithd);
-            this.panel3.Location = new System.Drawing.Point(976, 15);
+            this.panel3.Location = new System.Drawing.Point(1107, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(688, 543);
+            this.panel3.Size = new System.Drawing.Size(692, 565);
             this.panel3.TabIndex = 6;
+            // 
+            // button_qlremovehopdong
+            // 
+            this.button_qlremovehopdong.Location = new System.Drawing.Point(520, 461);
+            this.button_qlremovehopdong.Name = "button_qlremovehopdong";
+            this.button_qlremovehopdong.Size = new System.Drawing.Size(154, 41);
+            this.button_qlremovehopdong.TabIndex = 28;
+            this.button_qlremovehopdong.Text = "Xóa";
+            this.button_qlremovehopdong.UseVisualStyleBackColor = true;
+            this.button_qlremovehopdong.Click += new System.EventHandler(this.button_qlremovehopdong_Click);
             // 
             // panel4_qlturnonedithd
             // 
@@ -116,10 +128,28 @@ namespace DoAn
             this.panel4_qlturnonedithd.Controls.Add(this.dateTimePicker1_qldaystarthd);
             this.panel4_qlturnonedithd.Controls.Add(this.label6);
             this.panel4_qlturnonedithd.Controls.Add(this.label8);
-            this.panel4_qlturnonedithd.Location = new System.Drawing.Point(3, 3);
+            this.panel4_qlturnonedithd.Location = new System.Drawing.Point(14, 4);
             this.panel4_qlturnonedithd.Name = "panel4_qlturnonedithd";
             this.panel4_qlturnonedithd.Size = new System.Drawing.Size(671, 432);
             this.panel4_qlturnonedithd.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(46, 372);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 17);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Hình Thức";
+            // 
+            // comboBox_qlhinhthucHdfEdit
+            // 
+            this.comboBox_qlhinhthucHdfEdit.FormattingEnabled = true;
+            this.comboBox_qlhinhthucHdfEdit.Location = new System.Drawing.Point(196, 369);
+            this.comboBox_qlhinhthucHdfEdit.Name = "comboBox_qlhinhthucHdfEdit";
+            this.comboBox_qlhinhthucHdfEdit.Size = new System.Drawing.Size(150, 24);
+            this.comboBox_qlhinhthucHdfEdit.TabIndex = 26;
+            this.comboBox_qlhinhthucHdfEdit.Click += new System.EventHandler(this.comboBox_qlhinhthucHdfEdit_Click);
             // 
             // textBox2_qlmaxeotohd
             // 
@@ -162,6 +192,8 @@ namespace DoAn
             this.comboBox2_qlcategoryxehd.Name = "comboBox2_qlcategoryxehd";
             this.comboBox2_qlcategoryxehd.Size = new System.Drawing.Size(179, 24);
             this.comboBox2_qlcategoryxehd.TabIndex = 21;
+            this.comboBox2_qlcategoryxehd.SelectedValueChanged += new System.EventHandler(this.comboBox2_qlcategoryxehd_SelectedValueChanged);
+            this.comboBox2_qlcategoryxehd.Click += new System.EventHandler(this.comboBox2_qlcategoryxehd_Click);
             // 
             // label5
             // 
@@ -203,6 +235,8 @@ namespace DoAn
             this.comboBox1_qlcategoryhdkh.Name = "comboBox1_qlcategoryhdkh";
             this.comboBox1_qlcategoryhdkh.Size = new System.Drawing.Size(179, 24);
             this.comboBox1_qlcategoryhdkh.TabIndex = 16;
+            this.comboBox1_qlcategoryhdkh.SelectedValueChanged += new System.EventHandler(this.comboBox1_qlcategoryhdkh_SelectedValueChanged);
+            this.comboBox1_qlcategoryhdkh.Click += new System.EventHandler(this.comboBox1_qlcategoryhdkh_Click);
             // 
             // label4
             // 
@@ -266,6 +300,7 @@ namespace DoAn
             this.button1_qlcapnhathd.TabIndex = 6;
             this.button1_qlcapnhathd.Text = "Cập Nhật";
             this.button1_qlcapnhathd.UseVisualStyleBackColor = true;
+            this.button1_qlcapnhathd.Click += new System.EventHandler(this.button1_qlcapnhathd_Click);
             // 
             // button1_qlThanhtoanHd
             // 
@@ -279,7 +314,7 @@ namespace DoAn
             // 
             // button1_qledithd
             // 
-            this.button1_qledithd.Location = new System.Drawing.Point(406, 461);
+            this.button1_qledithd.Location = new System.Drawing.Point(358, 461);
             this.button1_qledithd.Name = "button1_qledithd";
             this.button1_qledithd.Size = new System.Drawing.Size(154, 41);
             this.button1_qledithd.TabIndex = 5;
@@ -296,9 +331,9 @@ namespace DoAn
             this.panel2.Controls.Add(this.listView1_qlhopdong);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.comboBox1_qlcategorykhachhanghd);
-            this.panel2.Location = new System.Drawing.Point(14, 19);
+            this.panel2.Location = new System.Drawing.Point(14, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(956, 542);
+            this.panel2.Size = new System.Drawing.Size(1087, 565);
             this.panel2.TabIndex = 3;
             // 
             // label3
@@ -352,9 +387,11 @@ namespace DoAn
             this.listView1_qlhopdong.FullRowSelect = true;
             this.listView1_qlhopdong.GridLines = true;
             this.listView1_qlhopdong.HideSelection = false;
-            this.listView1_qlhopdong.Location = new System.Drawing.Point(0, 56);
+            this.listView1_qlhopdong.Location = new System.Drawing.Point(6, 59);
+            this.listView1_qlhopdong.MaximumSize = new System.Drawing.Size(1078, 502);
+            this.listView1_qlhopdong.MinimumSize = new System.Drawing.Size(1078, 502);
             this.listView1_qlhopdong.Name = "listView1_qlhopdong";
-            this.listView1_qlhopdong.Size = new System.Drawing.Size(950, 483);
+            this.listView1_qlhopdong.Size = new System.Drawing.Size(1078, 502);
             this.listView1_qlhopdong.TabIndex = 0;
             this.listView1_qlhopdong.UseCompatibleStateImageBehavior = false;
             this.listView1_qlhopdong.View = System.Windows.Forms.View.Details;
@@ -363,47 +400,44 @@ namespace DoAn
             // columnHeader1
             // 
             this.columnHeader1.Text = "Mã HD";
-            this.columnHeader1.Width = 65;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Mã KH";
-            this.columnHeader2.Width = 57;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Tên KHách Hàng";
-            this.columnHeader3.Width = 181;
+            this.columnHeader3.Width = 150;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Mã Xe";
-            this.columnHeader4.Width = 57;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Tên Xe";
-            this.columnHeader5.Width = 168;
+            this.columnHeader5.Width = 150;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Tiền Thuê";
-            this.columnHeader6.Width = 154;
+            this.columnHeader6.Width = 100;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Ngày Thuê";
-            this.columnHeader7.Width = 143;
+            this.columnHeader7.Width = 120;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Ngày Trả";
-            this.columnHeader8.Width = 128;
+            this.columnHeader8.Width = 120;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Hình Thức";
-            this.columnHeader9.Width = 172;
+            this.columnHeader9.Width = 100;
             // 
             // label1
             // 
@@ -423,33 +457,18 @@ namespace DoAn
             this.comboBox1_qlcategorykhachhanghd.TabIndex = 1;
             this.comboBox1_qlcategorykhachhanghd.SelectedValueChanged += new System.EventHandler(this.comboBox1_qlcategorykhachhanghd_SelectedValueChanged);
             // 
-            // comboBox_qlhinhthucHdfEdit
-            // 
-            this.comboBox_qlhinhthucHdfEdit.FormattingEnabled = true;
-            this.comboBox_qlhinhthucHdfEdit.Location = new System.Drawing.Point(196, 369);
-            this.comboBox_qlhinhthucHdfEdit.Name = "comboBox_qlhinhthucHdfEdit";
-            this.comboBox_qlhinhthucHdfEdit.Size = new System.Drawing.Size(150, 24);
-            this.comboBox_qlhinhthucHdfEdit.TabIndex = 26;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(46, 372);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 17);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "Hình Thức";
-            // 
             // fhopdong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1900, 653);
+            this.ClientSize = new System.Drawing.Size(1816, 616);
             this.Controls.Add(this.panel1);
-            this.MinimumSize = new System.Drawing.Size(1918, 700);
+            this.MaximumSize = new System.Drawing.Size(1834, 663);
+            this.MinimumSize = new System.Drawing.Size(1834, 663);
             this.Name = "fhopdong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fhopdong";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4_qlturnonedithd.ResumeLayout(false);
@@ -503,5 +522,6 @@ namespace DoAn
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox_qlhinhthucHdfEdit;
         private System.Windows.Forms.TextBox textBox1_qlmahopdong;
+        private System.Windows.Forms.Button button_qlremovehopdong;
     }
 }

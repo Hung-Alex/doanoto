@@ -58,6 +58,20 @@ namespace DoAn.DAO
             return oto;
         }
 
-
+        public void updateOto(string maxe)
+        {
+            DAO.DataProvider.Instance.ExecuteNonQuery("exec usp_UpdateOtoByMaXe @maxe",new object[] { maxe});
+        }
+        public List<DTO.Oto> loadOto(string trangthai)// load oto by status (Trống or Thuê)
+        {
+            List<DTO.Oto> otolist = new List<DTO.Oto>();
+            DataTable data = DAO.DataProvider.Instance.ExecuteQuery($"select * from OTO where TrangThai=N'{trangthai}'");
+            foreach (DataRow item in data.Rows)
+            {
+                DTO.Oto oto = new DTO.Oto(item);
+                otolist.Add(oto);
+            }
+            return otolist;
+        }
     }
 }

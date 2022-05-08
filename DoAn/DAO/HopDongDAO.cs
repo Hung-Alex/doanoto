@@ -35,7 +35,7 @@ namespace DoAn.DAO
         public List<DTO.HopDong> getListHopDong()
         {
             List<DTO.HopDong> result = new List<DTO.HopDong>();
-            DataTable hopdongs = DAO.DataProvider.Instance.ExecuteQuery(" exec dbo.usp_GetlistHopDongByTinhTrang @tinhtrang",new object[] {@"Chưa Thanh Toán" });
+            DataTable hopdongs = DAO.DataProvider.Instance.ExecuteQuery(" exec dbo.usp_GetlistHopDongByTinhTrang @tinhtrang",new object[] {"Chưa Thanh Toán" });
             foreach (DataRow item in hopdongs.Rows)
             {
                 DTO.HopDong hopdongitem = new DTO.HopDong(item);
@@ -76,6 +76,20 @@ namespace DoAn.DAO
                 result.Add(hopdongitem);
             }
             return result;
+        }
+        public int updateHopDong(string mahopdong)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery("exec usp_UpdateHopDongByMaHD @mahopdong",new object[] {mahopdong });
+        }
+
+        public int removeHopDong(string mahd)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery("exec dbo.usp_RemoveHopDong @mahd",new object[] { mahd});
+        }
+        public int updateHopDong(string mahopdong,int tienthue,DateTime ngaythue,DateTime ngaytra,string tinhtrang,string maxe,string makh)
+        {
+            
+            return DAO.DataProvider.Instance.ExecuteNonQuery($"exec usp_UpdateHopDong '{mahopdong}' ,'{tienthue}' ,'{ngaythue}' ,'{ngaytra}' ,N'{tinhtrang}' ,'{maxe}' ,'{makh}'");
         }
     }
 }

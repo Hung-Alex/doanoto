@@ -17,6 +17,7 @@ namespace DoAn
         {
             InitializeComponent();
             loadComboboxTenKH();
+            loadComboboxEditQlKH();
             loadHinhThuc();
             loadComboboxTenXe();
             loadHopDong();
@@ -26,8 +27,8 @@ namespace DoAn
         #region Events
         private void button1_qledithd_Click(object sender, EventArgs e)
         {
-            setEnable(true);
-
+            
+            
         }
         private void comboBox1_qlcategorykhachhanghd_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -90,6 +91,9 @@ namespace DoAn
             if (DAO.HoaDonDAO.Instance.InsertHoaDon(tienthue,textBox1_qlmakh.Text,textBox2_qlmaxeotohd.Text)>0)
             {
                 MessageBox.Show("Success");
+                DAO.HopDongDAO.Instance.updateHopDong(textBox1_qlmahopdong.Text);
+                DAO.OtoDAO.Instance.updateOto(textBox2_qlmaxeotohd.Text);
+                loadHopDong();
 
             }
             else
@@ -97,6 +101,12 @@ namespace DoAn
                 MessageBox.Show("false");
 
             }
+        }
+        private void comboBox1_qlcategoryhdkh_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ComboBox listKhachhang = sender as ComboBox;
+            DTO.KhachHang khachHang = listKhachhang.SelectedValue as DTO.KhachHang;
+            textBox1_qlmakh.Text = khachHang.MaKH;
         }
         #endregion
 
@@ -116,7 +126,7 @@ namespace DoAn
         }
         public void loadHinhThuc()
         {
-           List<string> listHinhThuc =  new List<string>() { @"Chưa Thanh Toán",@"Thanh Toán"};
+           List<string> listHinhThuc =  new List<string>() { "Chưa Thanh Toán","Thanh Toán"};
             combox_qlHinhthucHd.DataSource = listHinhThuc;
         }
         public void loadHopDong()
@@ -125,7 +135,7 @@ namespace DoAn
             List<DTO.HopDong> hopdongs = DAO.HopDongDAO.Instance.getListHopDong();
             foreach (DTO.HopDong item in hopdongs)
             {
-                string[] s = { item.MaHD, item.MaKH, item.TenKhachHang, item.MaXe, item.TenXe, string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NgayThue), string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NgayTra), item.NgayTra.ToString(),item.TinhTrang };
+                string[] s = { item.MaHD, item.MaKH, item.TenKhachHang, item.MaXe, item.TenXe,item.TienThue.ToString(), string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NgayThue), string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NgayTra),item.TinhTrang };
                 ListViewItem hopdongitem = new ListViewItem(s);
                 hopdongitem.Tag = item;
                 listView1_qlhopdong.Items.Add(hopdongitem);
@@ -149,7 +159,7 @@ namespace DoAn
             List<DTO.HopDong> hopdongs = DAO.HopDongDAO.Instance.getListHopDongByNameOto(tenoto);
             foreach (DTO.HopDong item in hopdongs)
             {
-                string[] s = { item.MaHD, item.MaKH, item.TenKhachHang, item.MaXe, item.TenXe,item.TienThue.ToString(), string.Format("{0:dd/MM/yyyy HH:mm:ss}",item.NgayThue), string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NgayTra), item.NgayTra.ToString(), item.TinhTrang };
+                string[] s = { item.MaHD, item.MaKH, item.TenKhachHang, item.MaXe, item.TenXe,item.TienThue.ToString(), string.Format("{0:dd/MM/yyyy HH:mm:ss}",item.NgayThue), string.Format("{0:dd/MM/yyyy HH:mm:ss}", item.NgayTra), item.TinhTrang };
                 ListViewItem hopdongitem = new ListViewItem(s);
                 hopdongitem.Tag = item;
                 listView1_qlhopdong.Items.Add(hopdongitem);
@@ -167,6 +177,25 @@ namespace DoAn
                 listView1_qlhopdong.Items.Add(hopdongitem);
             }
         }
+        void loadComboboxEditQlKH()
+        {
+            comboBox1_qlcategoryhdkh.DataSource = DAO.KhachHangDAO.Instance.GetListKhachHang();
+            comboBox1_qlcategoryhdkh.DisplayMember = "TenKH";
+        }
+        void loadComboboxEditQlOto()
+        {
+            comboBox2_qlcategoryxehd.DataSource = DAO.OtoDAO.Instance.loadOto(@"Trống");
+            comboBox2_qlcategoryxehd.DisplayMember = "TenXe";
+;        }
+        void loadComboboxHinhThucEditQl()
+        {
+            List<string> listHinhThuc = new List<string>() { "Chưa Thanh Toán", "Thanh Toán" };
+            comboBox_qlhinhthucHdfEdit.DataSource = listHinhThuc;
+        }
+
+
+
+
 
 
 
@@ -175,9 +204,67 @@ namespace DoAn
 
         #endregion
 
-       
+        private void comboBox2_qlcategoryxehd_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ComboBox listOto = sender as ComboBox;
+            DTO.Oto oto = listOto.SelectedValue as DTO.Oto;
+            textBox2_qlmaxeotohd.Text = oto.MaXe;
+        }
 
-       
+        private void button_qlremovehopdong_Click(object sender, EventArgs e)
+        {
+            string mahd = textBox1_qlmahopdong.Text;
+
+            if (DAO.HopDongDAO.Instance.removeHopDong(mahd.Trim())>0) 
+            {
+                MessageBox.Show("success");
+                loadHopDong();
+            }
+            else
+            {
+                MessageBox.Show("falied");
+
+            }
+        }
+
+        private void button1_qlcapnhathd_Click(object sender, EventArgs e)
+        {
+            int price;
+            if (int.TryParse(textBox4_qltienthuehd.Text,out price)==false)
+            {
+                MessageBox.Show("Kiểm tra lại tiền thuê không có chữ hoặc ký tự");
+                return;
+            }
+            if ( DAO.HopDongDAO.Instance.updateHopDong(textBox1_qlmahopdong.Text,price,dateTimePicker1_qldaystarthd.Value,dateTimePicker2_qldayendhd.Value, comboBox_qlhinhthucHdfEdit.Text, textBox2_qlmaxeotohd.Text,textBox1_qlmakh.Text)>0)
+            {
+                MessageBox.Show("update success");
+                loadHopDong();
+            }
+            else
+            {
+                MessageBox.Show("false");
+
+            }
+
+
+        }
+
+        private void comboBox1_qlcategoryhdkh_Click(object sender, EventArgs e)
+        {
+            loadComboboxEditQlKH();
+           
+            
+        }
+
+        private void comboBox2_qlcategoryxehd_Click(object sender, EventArgs e)
+        {
+            loadComboboxEditQlOto();
+        }
+
+        private void comboBox_qlhinhthucHdfEdit_Click(object sender, EventArgs e)
+        {
+            loadComboboxHinhThucEditQl();
+        }
     }
 
 }

@@ -197,7 +197,11 @@ namespace DoAn
                 MessageBox.Show("false");
 
             }
-            
+            listView_HopDong.Items.Clear();
+            loadOto();
+
+
+
 
 
 
