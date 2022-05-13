@@ -15,6 +15,20 @@ namespace DoAn
         public fKhachHang()
         {
             InitializeComponent();
+            loadKhachHangListView();
+        }
+        void loadKhachHangListView()
+        {
+            List<DTO.KhachHang> listKH = DAO.KhachHangDAO.Instance.GetListKhachHang();
+            
+            foreach (var item in listKH)
+            {
+                string[] obItemForListview = {item.MaKH, item.TenKH,item.SCMND,item.SDT,item.DiaChi,item.GioiTinh };
+                ListViewItem itemKhachHang = new ListViewItem(obItemForListview);
+                itemKhachHang.Tag = item;
+                listView_khachhang.Items.Add(itemKhachHang);
+            }
+            
         }
     }
 }

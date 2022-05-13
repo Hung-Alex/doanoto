@@ -39,6 +39,7 @@ namespace DoAn
             {
                 getText.Text = "Chỉnh Sửa";
                 SetEnable(false, true, true);
+                listView1_qlhopdong_SelectedIndexChanged(listView1_qlhopdong,null);
             }
             
 
