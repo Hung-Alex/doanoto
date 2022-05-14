@@ -36,6 +36,29 @@ namespace DoAn.DAO
             }
             return khachHangs;
         }
+        public int RemoveKhachHang(string makhachhang)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery($" exec dbo.usp_RemoveKhachHangByMaKH '{makhachhang}'");
+        }
+        public int InsertKhachHang(string tenKh,string scmnd,string sdt,string diachi,string gioitinh)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery($" exec dbo.usp_InsertKhachHang N'{tenKh}' ,'{scmnd}' ,'{sdt}', N'{diachi}' ,N'{gioitinh}' ");
+        }
+        public int UpdateKhachHang(string makh, string tenkh,string scmnd,string sdt,string diachi,string giotinh)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery($" exec dbo.usp_UpdateKhachHang '{makh}' ,N'{tenkh}' ,'{scmnd}' ,'{sdt}' ,N'{diachi}' ,N'{giotinh}'");
+        }
+        public List<DTO.KhachHang> FindNameKH(string tenkh)
+        {
+            List<DTO.KhachHang> khachHangs = new List<DTO.KhachHang>();
+            DataTable data = DAO.DataProvider.Instance.ExecuteQuery($"select * from KHACHHANG where TenKhachHang like '%{tenkh.Trim()}%'");
+            foreach (DataRow item in data.Rows)
+            {
+                DTO.KhachHang khacHangItem = new DTO.KhachHang(item);
+                khachHangs.Add(khacHangItem);
+            }
+            return khachHangs;
+        }
 
     }
 }

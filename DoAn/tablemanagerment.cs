@@ -225,5 +225,12 @@ namespace DoAn
             fKhachHang fresult = new fKhachHang();
             fresult.ShowDialog();
         }
+
+        private void btn_themKH_Click(object sender, EventArgs e)
+        {
+            fInsertKH f = new fInsertKH();
+            f.ShowDialog();
+            loadKhacHang();
+        }
     }
 }

@@ -91,5 +91,9 @@ namespace DoAn.DAO
             
             return DAO.DataProvider.Instance.ExecuteNonQuery($"exec usp_UpdateHopDong '{mahopdong}' ,'{tienthue}' ,'{ngaythue}' ,'{ngaytra}' ,N'{tinhtrang}' ,'{maxe}' ,'{makh}'");
         }
+        public int RemoveHopDongByMaKH(string makh)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery($" exec dbo.usp_RemoveHopDongByMaKH '{makh}'");
+        }
     }
 }

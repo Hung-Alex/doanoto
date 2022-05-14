@@ -74,6 +74,12 @@
     <Compile Include="fhopdong.Designer.cs">
       <DependentUpon>fhopdong.cs</DependentUpon>
     </Compile>
+    <Compile Include="fInsertKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fInsertKH.Designer.cs">
+      <DependentUpon>fInsertKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="fKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fhopdong.resx">
       <DependentUpon>fhopdong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fInsertKH.resx">
+      <DependentUpon>fInsertKH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fKhachHang.resx">
       <DependentUpon>fKhachHang.cs</DependentUpon>

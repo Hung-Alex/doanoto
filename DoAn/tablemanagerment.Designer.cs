@@ -61,6 +61,7 @@ namespace DoAn
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1_HopDong_Khachang = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_themKH = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -75,7 +76,7 @@ namespace DoAn
             this.quảnLýToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1374, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1407, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -98,14 +99,14 @@ namespace DoAn
             // thôngTinCáNhânToolStripMenuItem
             // 
             this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -148,7 +149,7 @@ namespace DoAn
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(12, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1350, 561);
+            this.panel1.Size = new System.Drawing.Size(1383, 561);
             this.panel1.TabIndex = 1;
             // 
             // button_hopdong_xemtatca
@@ -189,6 +190,7 @@ namespace DoAn
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_themKH);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
@@ -203,7 +205,7 @@ namespace DoAn
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(687, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(660, 556);
+            this.panel2.Size = new System.Drawing.Size(693, 556);
             this.panel2.TabIndex = 0;
             // 
             // label5
@@ -270,7 +272,7 @@ namespace DoAn
             this.listView_HopDong.HideSelection = false;
             this.listView_HopDong.Location = new System.Drawing.Point(3, 247);
             this.listView_HopDong.Name = "listView_HopDong";
-            this.listView_HopDong.Size = new System.Drawing.Size(654, 210);
+            this.listView_HopDong.Size = new System.Drawing.Size(687, 210);
             this.listView_HopDong.TabIndex = 6;
             this.listView_HopDong.UseCompatibleStateImageBehavior = false;
             this.listView_HopDong.View = System.Windows.Forms.View.Details;
@@ -345,11 +347,21 @@ namespace DoAn
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên Khách Hàng";
             // 
+            // btn_themKH
+            // 
+            this.btn_themKH.Location = new System.Drawing.Point(541, 12);
+            this.btn_themKH.Name = "btn_themKH";
+            this.btn_themKH.Size = new System.Drawing.Size(140, 42);
+            this.btn_themKH.TabIndex = 13;
+            this.btn_themKH.Text = "Thêm Khách Hàng";
+            this.btn_themKH.UseVisualStyleBackColor = true;
+            this.btn_themKH.Click += new System.EventHandler(this.btn_themKH_Click);
+            // 
             // tablemanagerment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1374, 612);
+            this.ClientSize = new System.Drawing.Size(1407, 612);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -401,5 +413,6 @@ namespace DoAn
         private System.Windows.Forms.ComboBox comboBox_categorybySochoNgoi;
         private System.Windows.Forms.Button button_hopdong_xemtatca;
         private System.Windows.Forms.ToolStripMenuItem hợpĐồngToolStripMenuItem;
+        private System.Windows.Forms.Button btn_themKH;
     }
 }

@@ -82,7 +82,7 @@ namespace DoAn.DAO
         }
         public object ExecuteScalar(string query, object[] parameter = null)
         {
-            object data = 0;
+             object data = 0;
             using (SqlConnection conection = new SqlConnection(connectionSTR))
             {
                 conection.Open();
@@ -100,7 +100,7 @@ namespace DoAn.DAO
                         }
                     }
                 }
-                data = command.ExecuteScalar();
+                data =   command.ExecuteScalar();
                 conection.Close();
             }
 

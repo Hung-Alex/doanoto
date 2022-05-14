@@ -128,8 +128,12 @@ namespace DoAn
         private void comboBox1_qlcategoryhdkh_SelectedValueChanged(object sender, EventArgs e)
         {
             ComboBox listKhachhang = sender as ComboBox;
-            DTO.KhachHang khachHang = listKhachhang.SelectedValue as DTO.KhachHang;
-            textBox1_qlmakh.Text = khachHang.MaKH;
+            if (listKhachhang.SelectedItem!=null)
+            {
+                DTO.KhachHang khachHang = listKhachhang.SelectedValue as DTO.KhachHang;
+                textBox1_qlmakh.Text = khachHang.MaKH;
+            }
+          
         }
         #endregion
 
