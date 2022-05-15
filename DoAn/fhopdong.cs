@@ -34,11 +34,13 @@ namespace DoAn
             {
                 getText.Text = "Hủy";
                 SetEnable(true, false,false);
+                
             }
             else
             {
                 getText.Text = "Chỉnh Sửa";
                 SetEnable(false, true, true);
+                Reset();
                 listView1_qlhopdong_SelectedIndexChanged(listView1_qlhopdong,null);
             }
             
@@ -138,6 +140,20 @@ namespace DoAn
         #endregion
 
         #region method
+        void Reset()
+        {
+            textBox1_qlmahopdong.Text = "";
+            comboBox1_qlcategoryhdkh.Text = "";
+            comboBox2_qlcategoryxehd.Text = "";
+            textBox1_qlmakh.Text = "";
+            textBox2_qlmaxeotohd.Text = "";
+            textBox4_qltienthuehd.Text = "";
+            comboBox_qlhinhthucHdfEdit.Text = "";
+            dateTimePicker1_qldaystarthd.Text = "";
+            dateTimePicker2_qldayendhd.Text = "";
+
+
+        }
         
         public void loadComboboxTenKH()
         {
@@ -272,15 +288,17 @@ namespace DoAn
                 }
                 else
                 {
-                    try
+                    int count = (int)DAO.DataProvider.Instance.ExecuteScalar($"select COUNT(*) from HOADON where MaHopDong='{textBox1_qlmahopdong.Text}'");
+                    if (count>0)
+                    {
+                        DAO.HoaDonDAO.Instance.UpdateHoaDon(price, textBox2_qlmaxeotohd.Text, textBox1_qlmakh.Text, textBox1_qlmahopdong.Text);
+                    }
+                    else
                     {
                         DAO.HoaDonDAO.Instance.InsertHoaDon(int.Parse(textBox4_qltienthuehd.Text), textBox1_qlmakh.Text, textBox2_qlmaxeotohd.Text, textBox1_qlmahopdong.Text);
                     }
-                    catch (Exception)
-                    {
-
-                        throw;
-                    }
+                    
+                    
                    
                 }
             }
@@ -308,6 +326,11 @@ namespace DoAn
         private void comboBox_qlhinhthucHdfEdit_Click(object sender, EventArgs e)
         {
             loadComboboxHinhThucEditQl();
+        }
+
+        private void fhopdong_Load(object sender, EventArgs e)
+        {
+            Reset();
         }
     }
 

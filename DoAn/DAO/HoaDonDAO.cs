@@ -40,5 +40,9 @@ namespace DoAn.DAO
         {
             return DAO.DataProvider.Instance.ExecuteNonQuery($"exec dbo.usp_RemoveHoaDonByMaKH '{makh}'");
         }
+        public int UpdateHoaDon(int tongtien,string maxe,string makhachang,string mahopdong)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery($"exec dbo.usp_UpdateHoaDon '{DateTime.Now}' ,'{tongtien}' ,'{maxe}' ,'{mahopdong}' , '{makhachang}'");
+        }
     }
 }

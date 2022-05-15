@@ -230,7 +230,18 @@ namespace DoAn
         {
             fInsertKH f = new fInsertKH();
             f.ShowDialog();
+            
+        }
+
+        private void comboBox1_HopDong_Khachang_Click(object sender, EventArgs e)
+        {
             loadKhacHang();
+        }
+
+        private void otoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fOto f = new fOto();
+            f.ShowDialog();
         }
     }
 }

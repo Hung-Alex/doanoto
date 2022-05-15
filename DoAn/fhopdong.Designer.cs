@@ -469,6 +469,7 @@ namespace DoAn
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fhopdong";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.fhopdong_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4_qlturnonedithd.ResumeLayout(false);

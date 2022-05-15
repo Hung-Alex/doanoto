@@ -14,3 +14,5 @@ C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fadmin.resou
 C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fhopdong.resources
 C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fKhachHang.resources
 C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fInsertKH.resources
+C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.fOto.resources
+C:\Users\phamn\OneDrive\Desktop\DoAnCoSO\source\DoAn\obj\Debug\DoAn.finsertoto.resources

@@ -42,5 +42,21 @@ namespace DoAn
                 }
             
         }
+        void Reset()
+        {
+            
+            txt_tenkhachhang.Text = "";
+            txt_sdt.Text = "";
+            txt_scmnd.Text = "";
+            combobox_gioitinh.Text = "";
+            txt_address.Text = "";
+
+        }
+
+        private void btn_reset_Click(object sender, EventArgs e)
+        {
+            Reset();
+           
+        }
     }
 }

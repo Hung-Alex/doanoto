@@ -39,6 +39,18 @@ namespace DoAn.DAO
             }
             return otolist;
         }
+        public List<DTO.Oto> GetListOto()
+        {
+            List<DTO.Oto> otolist = new List<DTO.Oto>();
+            DataTable data = DAO.DataProvider.Instance.ExecuteQuery("usp_GetOtoList");
+            foreach (DataRow item in data.Rows)
+            {
+                DTO.Oto oto = new DTO.Oto(item);
+                otolist.Add(oto);
+            }
+            return otolist;
+        }
+
         public List<DTO.Oto> loadOto(int sochoingoi)
         {
             List<DTO.Oto> otolist = new List<DTO.Oto>();
@@ -72,6 +84,10 @@ namespace DoAn.DAO
                 otolist.Add(oto);
             }
             return otolist;
+        }
+        public int InsertOto(string tenxe,string hangxe,string biensoxe,int sochongoi)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery($" exec dbo.usp_InsertOto N'{tenxe}' ,N'{hangxe}' ,'{biensoxe}' ,{sochongoi}");
         }
     }
 }

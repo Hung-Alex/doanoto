@@ -44,6 +44,7 @@ namespace DoAn
             this.comboBox_categorybySochoNgoi = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel_HopDOng = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_themKH = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@ namespace DoAn
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1_HopDong_Khachang = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_themKH = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -99,14 +99,14 @@ namespace DoAn
             // thôngTinCáNhânToolStripMenuItem
             // 
             this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
+            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
             this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -132,6 +132,7 @@ namespace DoAn
             this.otoToolStripMenuItem.Name = "otoToolStripMenuItem";
             this.otoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.otoToolStripMenuItem.Text = "Oto";
+            this.otoToolStripMenuItem.Click += new System.EventHandler(this.otoToolStripMenuItem_Click);
             // 
             // hợpĐồngToolStripMenuItem
             // 
@@ -207,6 +208,16 @@ namespace DoAn
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(693, 556);
             this.panel2.TabIndex = 0;
+            // 
+            // btn_themKH
+            // 
+            this.btn_themKH.Location = new System.Drawing.Point(541, 12);
+            this.btn_themKH.Name = "btn_themKH";
+            this.btn_themKH.Size = new System.Drawing.Size(140, 42);
+            this.btn_themKH.TabIndex = 13;
+            this.btn_themKH.Text = "Thêm Khách Hàng";
+            this.btn_themKH.UseVisualStyleBackColor = true;
+            this.btn_themKH.Click += new System.EventHandler(this.btn_themKH_Click);
             // 
             // label5
             // 
@@ -337,6 +348,7 @@ namespace DoAn
             this.comboBox1_HopDong_Khachang.Size = new System.Drawing.Size(309, 24);
             this.comboBox1_HopDong_Khachang.TabIndex = 1;
             this.comboBox1_HopDong_Khachang.SelectedValueChanged += new System.EventHandler(this.comboBox1_HopDong_SelectedValueChanged);
+            this.comboBox1_HopDong_Khachang.Click += new System.EventHandler(this.comboBox1_HopDong_Khachang_Click);
             // 
             // label1
             // 
@@ -346,16 +358,6 @@ namespace DoAn
             this.label1.Size = new System.Drawing.Size(115, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên Khách Hàng";
-            // 
-            // btn_themKH
-            // 
-            this.btn_themKH.Location = new System.Drawing.Point(541, 12);
-            this.btn_themKH.Name = "btn_themKH";
-            this.btn_themKH.Size = new System.Drawing.Size(140, 42);
-            this.btn_themKH.TabIndex = 13;
-            this.btn_themKH.Text = "Thêm Khách Hàng";
-            this.btn_themKH.UseVisualStyleBackColor = true;
-            this.btn_themKH.Click += new System.EventHandler(this.btn_themKH_Click);
             // 
             // tablemanagerment
             // 
