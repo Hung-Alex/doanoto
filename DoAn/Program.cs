@@ -16,8 +16,9 @@ namespace DoAn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-          // Application.Run(new Flogin());
-            Application.Run(new fOto());
+             Application.Run(new Flogin());
+             //Application.Run(new fOto());
+
         }
     }
 }

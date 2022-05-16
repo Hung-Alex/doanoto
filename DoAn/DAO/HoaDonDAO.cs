@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,17 @@ namespace DoAn.DAO
         public int UpdateHoaDon(int tongtien,string maxe,string makhachang,string mahopdong)
         {
             return DAO.DataProvider.Instance.ExecuteNonQuery($"exec dbo.usp_UpdateHoaDon '{DateTime.Now}' ,'{tongtien}' ,'{maxe}' ,'{mahopdong}' , '{makhachang}'");
+        }
+        public List<DTO.HoaDon> GetListHoaDonByDay(DateTime ngaybatdau,DateTime ngayketthuc)
+        {
+            DataTable hoadon = DAO.DataProvider.Instance.ExecuteQuery($"exec dbo.usp_GetListHoaDonByDay '{ngaybatdau}' ,'{ngayketthuc}'");
+            List<DTO.HoaDon> listhoadon = new List<DTO.HoaDon>();
+            foreach (DataRow item in hoadon.Rows)
+            {
+                DTO.HoaDon itemhoadon = new DTO.HoaDon(item);
+                listhoadon.Add(itemhoadon);
+            }
+            return listhoadon;
         }
     }
 }

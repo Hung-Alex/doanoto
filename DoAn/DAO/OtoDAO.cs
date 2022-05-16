@@ -85,9 +85,36 @@ namespace DoAn.DAO
             }
             return otolist;
         }
+        public int UpdateOtoByOto(string maxe, string tenxe, string hangxe, string biensoxe, int sochongoi, string trangthai)
+        {
+             return DAO.DataProvider.Instance.ExecuteNonQuery($"exec usp_UpdateOto '{maxe}' ,N'{tenxe}' ,N'{hangxe}' ,'{biensoxe}' ,N'{trangthai}','{sochongoi}'");
+        }
+       
         public int InsertOto(string tenxe,string hangxe,string biensoxe,int sochongoi)
         {
             return DAO.DataProvider.Instance.ExecuteNonQuery($" exec dbo.usp_InsertOto N'{tenxe}' ,N'{hangxe}' ,'{biensoxe}' ,{sochongoi}");
         }
+        public int RemoveOto(string maxe)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery($"exec dbo.usp_RemoveOto '{maxe}'");
+        }
+        public  int RemoveHopDongAndHoaDonByMaxe(string maxe)
+        {
+            return DAO.DataProvider.Instance.ExecuteNonQuery($"exec dbo.usp_RemoveHopDongAndHoaDonByMaXe '{maxe}'");
+
+        }
+        public List<DTO.Oto> FindOtoByTenXe(string tenxe)
+        {
+            List<DTO.Oto> otolist = new List<DTO.Oto>();
+            DataTable data = DAO.DataProvider.Instance.ExecuteQuery($"select * from OTO where TenXe like N'%{tenxe.Trim()}%'");
+            foreach (DataRow item in data.Rows)
+            {
+                DTO.Oto oto = new DTO.Oto(item);
+                
+                otolist.Add(oto);
+            }
+            return otolist;
+        }
+
     }
 }

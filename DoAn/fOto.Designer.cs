@@ -30,8 +30,21 @@ namespace DoAn
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_findoto = new System.Windows.Forms.TextBox();
+            this.listView_oto = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel_editkhachhang = new System.Windows.Forms.Panel();
+            this.panel_editOto = new System.Windows.Forms.Panel();
+            this.rd_thue = new System.Windows.Forms.RadioButton();
+            this.rd_trong = new System.Windows.Forms.RadioButton();
+            this.txt_sochongoi = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label_MaKhachHang = new System.Windows.Forms.Label();
             this.txt_maxe = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,22 +58,9 @@ namespace DoAn
             this.btn_editoto = new System.Windows.Forms.Button();
             this.btn_removeoto = new System.Windows.Forms.Button();
             this.btn_addoto = new System.Windows.Forms.Button();
-            this.listView_oto = new System.Windows.Forms.ListView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_sochongoi = new System.Windows.Forms.TextBox();
-            this.rd_trong = new System.Windows.Forms.RadioButton();
-            this.rd_thue = new System.Windows.Forms.RadioButton();
-            this.txt_findoto = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel_editkhachhang.SuspendLayout();
+            this.panel_editOto.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,9 +74,74 @@ namespace DoAn
             this.panel1.Size = new System.Drawing.Size(1271, 495);
             this.panel1.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Tên Xe";
+            // 
+            // txt_findoto
+            // 
+            this.txt_findoto.Location = new System.Drawing.Point(79, 23);
+            this.txt_findoto.Name = "txt_findoto";
+            this.txt_findoto.Size = new System.Drawing.Size(306, 22);
+            this.txt_findoto.TabIndex = 18;
+            this.txt_findoto.TextChanged += new System.EventHandler(this.txt_findoto_TextChanged);
+            // 
+            // listView_oto
+            // 
+            this.listView_oto.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listView_oto.GridLines = true;
+            this.listView_oto.HideSelection = false;
+            this.listView_oto.Location = new System.Drawing.Point(3, 60);
+            this.listView_oto.Name = "listView_oto";
+            this.listView_oto.Size = new System.Drawing.Size(772, 421);
+            this.listView_oto.TabIndex = 17;
+            this.listView_oto.UseCompatibleStateImageBehavior = false;
+            this.listView_oto.View = System.Windows.Forms.View.Details;
+            this.listView_oto.SelectedIndexChanged += new System.EventHandler(this.listView_oto_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Mã Xe";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Tên Xe";
+            this.columnHeader2.Width = 164;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Hãng Xe";
+            this.columnHeader3.Width = 141;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Biển Số Xe";
+            this.columnHeader4.Width = 191;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Số Chỗ Ngồi";
+            this.columnHeader5.Width = 107;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Trạng Thái";
+            this.columnHeader6.Width = 113;
+            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel_editkhachhang);
+            this.panel2.Controls.Add(this.panel_editOto);
             this.panel2.Controls.Add(this.btn_updateoto);
             this.panel2.Controls.Add(this.btn_editoto);
             this.panel2.Controls.Add(this.btn_removeoto);
@@ -86,25 +151,63 @@ namespace DoAn
             this.panel2.Size = new System.Drawing.Size(490, 489);
             this.panel2.TabIndex = 16;
             // 
-            // panel_editkhachhang
+            // panel_editOto
             // 
-            this.panel_editkhachhang.Controls.Add(this.rd_thue);
-            this.panel_editkhachhang.Controls.Add(this.rd_trong);
-            this.panel_editkhachhang.Controls.Add(this.txt_sochongoi);
-            this.panel_editkhachhang.Controls.Add(this.label3);
-            this.panel_editkhachhang.Controls.Add(this.label_MaKhachHang);
-            this.panel_editkhachhang.Controls.Add(this.txt_maxe);
-            this.panel_editkhachhang.Controls.Add(this.label1);
-            this.panel_editkhachhang.Controls.Add(this.txt_hangxe);
-            this.panel_editkhachhang.Controls.Add(this.label2);
-            this.panel_editkhachhang.Controls.Add(this.txt_tenxe);
-            this.panel_editkhachhang.Controls.Add(this.label5);
-            this.panel_editkhachhang.Controls.Add(this.txt_biensoxe);
-            this.panel_editkhachhang.Controls.Add(this.label4);
-            this.panel_editkhachhang.Location = new System.Drawing.Point(3, 3);
-            this.panel_editkhachhang.Name = "panel_editkhachhang";
-            this.panel_editkhachhang.Size = new System.Drawing.Size(482, 343);
-            this.panel_editkhachhang.TabIndex = 16;
+            this.panel_editOto.Controls.Add(this.rd_thue);
+            this.panel_editOto.Controls.Add(this.rd_trong);
+            this.panel_editOto.Controls.Add(this.txt_sochongoi);
+            this.panel_editOto.Controls.Add(this.label3);
+            this.panel_editOto.Controls.Add(this.label_MaKhachHang);
+            this.panel_editOto.Controls.Add(this.txt_maxe);
+            this.panel_editOto.Controls.Add(this.label1);
+            this.panel_editOto.Controls.Add(this.txt_hangxe);
+            this.panel_editOto.Controls.Add(this.label2);
+            this.panel_editOto.Controls.Add(this.txt_tenxe);
+            this.panel_editOto.Controls.Add(this.label5);
+            this.panel_editOto.Controls.Add(this.txt_biensoxe);
+            this.panel_editOto.Controls.Add(this.label4);
+            this.panel_editOto.Location = new System.Drawing.Point(3, 3);
+            this.panel_editOto.Name = "panel_editOto";
+            this.panel_editOto.Size = new System.Drawing.Size(482, 343);
+            this.panel_editOto.TabIndex = 16;
+            // 
+            // rd_thue
+            // 
+            this.rd_thue.AutoSize = true;
+            this.rd_thue.Location = new System.Drawing.Point(236, 297);
+            this.rd_thue.Name = "rd_thue";
+            this.rd_thue.Size = new System.Drawing.Size(62, 21);
+            this.rd_thue.TabIndex = 19;
+            this.rd_thue.TabStop = true;
+            this.rd_thue.Text = "Thuê";
+            this.rd_thue.UseVisualStyleBackColor = true;
+            // 
+            // rd_trong
+            // 
+            this.rd_trong.AutoSize = true;
+            this.rd_trong.Location = new System.Drawing.Point(140, 297);
+            this.rd_trong.Name = "rd_trong";
+            this.rd_trong.Size = new System.Drawing.Size(67, 21);
+            this.rd_trong.TabIndex = 18;
+            this.rd_trong.TabStop = true;
+            this.rd_trong.Text = "Trống";
+            this.rd_trong.UseVisualStyleBackColor = true;
+            // 
+            // txt_sochongoi
+            // 
+            this.txt_sochongoi.Location = new System.Drawing.Point(140, 238);
+            this.txt_sochongoi.Name = "txt_sochongoi";
+            this.txt_sochongoi.Size = new System.Drawing.Size(67, 22);
+            this.txt_sochongoi.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 241);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 17);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Số Chỗ Ngồi";
             // 
             // label_MaKhachHang
             // 
@@ -188,6 +291,7 @@ namespace DoAn
             this.btn_updateoto.TabIndex = 16;
             this.btn_updateoto.Text = "Cập Nhật";
             this.btn_updateoto.UseVisualStyleBackColor = true;
+            this.btn_updateoto.Click += new System.EventHandler(this.btn_updateoto_Click);
             // 
             // btn_editoto
             // 
@@ -197,6 +301,7 @@ namespace DoAn
             this.btn_editoto.TabIndex = 12;
             this.btn_editoto.Text = "Sửa";
             this.btn_editoto.UseVisualStyleBackColor = true;
+            this.btn_editoto.Click += new System.EventHandler(this.btn_editoto_Click);
             // 
             // btn_removeoto
             // 
@@ -218,108 +323,6 @@ namespace DoAn
             this.btn_addoto.UseVisualStyleBackColor = true;
             this.btn_addoto.Click += new System.EventHandler(this.btn_addoto_Click);
             // 
-            // listView_oto
-            // 
-            this.listView_oto.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6});
-            this.listView_oto.GridLines = true;
-            this.listView_oto.HideSelection = false;
-            this.listView_oto.Location = new System.Drawing.Point(3, 60);
-            this.listView_oto.Name = "listView_oto";
-            this.listView_oto.Size = new System.Drawing.Size(772, 421);
-            this.listView_oto.TabIndex = 17;
-            this.listView_oto.UseCompatibleStateImageBehavior = false;
-            this.listView_oto.View = System.Windows.Forms.View.Details;
-            this.listView_oto.SelectedIndexChanged += new System.EventHandler(this.listView_oto_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 241);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 17);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Số Chỗ Ngồi";
-            // 
-            // txt_sochongoi
-            // 
-            this.txt_sochongoi.Location = new System.Drawing.Point(140, 238);
-            this.txt_sochongoi.Name = "txt_sochongoi";
-            this.txt_sochongoi.Size = new System.Drawing.Size(67, 22);
-            this.txt_sochongoi.TabIndex = 17;
-            // 
-            // rd_trong
-            // 
-            this.rd_trong.AutoSize = true;
-            this.rd_trong.Location = new System.Drawing.Point(140, 297);
-            this.rd_trong.Name = "rd_trong";
-            this.rd_trong.Size = new System.Drawing.Size(67, 21);
-            this.rd_trong.TabIndex = 18;
-            this.rd_trong.TabStop = true;
-            this.rd_trong.Text = "Trống";
-            this.rd_trong.UseVisualStyleBackColor = true;
-            // 
-            // rd_thue
-            // 
-            this.rd_thue.AutoSize = true;
-            this.rd_thue.Location = new System.Drawing.Point(236, 297);
-            this.rd_thue.Name = "rd_thue";
-            this.rd_thue.Size = new System.Drawing.Size(62, 21);
-            this.rd_thue.TabIndex = 19;
-            this.rd_thue.TabStop = true;
-            this.rd_thue.Text = "Thuê";
-            this.rd_thue.UseVisualStyleBackColor = true;
-            // 
-            // txt_findoto
-            // 
-            this.txt_findoto.Location = new System.Drawing.Point(79, 23);
-            this.txt_findoto.Name = "txt_findoto";
-            this.txt_findoto.Size = new System.Drawing.Size(306, 22);
-            this.txt_findoto.TabIndex = 18;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 17);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Tên Xe";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Mã Xe";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Tên Xe";
-            this.columnHeader2.Width = 164;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Hãng Xe";
-            this.columnHeader3.Width = 141;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Biển Số Xe";
-            this.columnHeader4.Width = 191;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Số Chỗ Ngồi";
-            this.columnHeader5.Width = 107;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Trạng Thái";
-            this.columnHeader6.Width = 113;
-            // 
             // fOto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -332,8 +335,8 @@ namespace DoAn
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel_editkhachhang.ResumeLayout(false);
-            this.panel_editkhachhang.PerformLayout();
+            this.panel_editOto.ResumeLayout(false);
+            this.panel_editOto.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -342,7 +345,7 @@ namespace DoAn
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel_editkhachhang;
+        private System.Windows.Forms.Panel panel_editOto;
         private System.Windows.Forms.Label label_MaKhachHang;
         private System.Windows.Forms.TextBox txt_maxe;
         private System.Windows.Forms.Label label1;

@@ -53,6 +53,7 @@
     <Compile Include="DAO\HopDongDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\OtoDAO.cs" />
+    <Compile Include="DTO\HoaDon.cs" />
     <Compile Include="DTO\HopDong.cs" />
     <Compile Include="DTO\KhachHang.cs" />
     <Compile Include="DTO\Oto.cs" />

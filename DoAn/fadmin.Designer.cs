@@ -30,12 +30,11 @@ namespace DoAn
         private void InitializeComponent()
         {
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
-            this.btn_view_bill = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridViewBill = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_view_bill = new System.Windows.Forms.Button();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_tenxe = new System.Windows.Forms.TextBox();
@@ -54,10 +53,22 @@ namespace DoAn
             this.dataGridView_oto = new System.Windows.Forms.DataGridView();
             this.btn_findoto = new System.Windows.Forms.Button();
             this.txt_inputoto = new System.Windows.Forms.TextBox();
+            this.lsvHoaDon = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtTongTien = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBill)).BeginInit();
+            this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_oto)).BeginInit();
             this.SuspendLayout();
@@ -74,8 +85,18 @@ namespace DoAn
             this.tabPage1.Text = "Doanh Thu";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.lsvHoaDon);
+            this.panel4.Location = new System.Drawing.Point(6, 65);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1038, 446);
+            this.panel4.TabIndex = 2;
+            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.txtTongTien);
             this.panel3.Controls.Add(this.btn_view_bill);
             this.panel3.Controls.Add(this.dateTimePickerEnd);
             this.panel3.Controls.Add(this.dateTimePickerStart);
@@ -83,20 +104,6 @@ namespace DoAn
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1038, 53);
             this.panel3.TabIndex = 1;
-            // 
-            // dateTimePickerStart
-            // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(15, 14);
-            this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerStart.TabIndex = 0;
-            // 
-            // dateTimePickerEnd
-            // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(533, 14);
-            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerEnd.TabIndex = 1;
             // 
             // btn_view_bill
             // 
@@ -106,24 +113,25 @@ namespace DoAn
             this.btn_view_bill.TabIndex = 2;
             this.btn_view_bill.Text = "Thống kê";
             this.btn_view_bill.UseVisualStyleBackColor = true;
+            this.btn_view_bill.Click += new System.EventHandler(this.btn_view_bill_Click);
             // 
-            // panel4
+            // dateTimePickerEnd
             // 
-            this.panel4.Controls.Add(this.dataGridViewBill);
-            this.panel4.Location = new System.Drawing.Point(6, 65);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1038, 446);
-            this.panel4.TabIndex = 2;
+            this.dateTimePickerEnd.CustomFormat = "dd/MM/yyy";
+            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(533, 14);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerEnd.TabIndex = 1;
             // 
-            // dataGridViewBill
+            // dateTimePickerStart
             // 
-            this.dataGridViewBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBill.Location = new System.Drawing.Point(0, -56);
-            this.dataGridViewBill.Name = "dataGridViewBill";
-            this.dataGridViewBill.RowHeadersWidth = 51;
-            this.dataGridViewBill.RowTemplate.Height = 24;
-            this.dataGridViewBill.Size = new System.Drawing.Size(1035, 499);
-            this.dataGridViewBill.TabIndex = 0;
+            this.dateTimePickerStart.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerStart.Location = new System.Drawing.Point(15, 14);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerStart.TabIndex = 0;
             // 
             // tabControl1
             // 
@@ -273,6 +281,94 @@ namespace DoAn
             this.txt_inputoto.Size = new System.Drawing.Size(272, 22);
             this.txt_inputoto.TabIndex = 14;
             // 
+            // lsvHoaDon
+            // 
+            this.lsvHoaDon.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10});
+            this.lsvHoaDon.GridLines = true;
+            this.lsvHoaDon.HideSelection = false;
+            this.lsvHoaDon.Location = new System.Drawing.Point(3, 3);
+            this.lsvHoaDon.Name = "lsvHoaDon";
+            this.lsvHoaDon.Size = new System.Drawing.Size(1032, 440);
+            this.lsvHoaDon.TabIndex = 0;
+            this.lsvHoaDon.UseCompatibleStateImageBehavior = false;
+            this.lsvHoaDon.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Mã Hóa Đơn";
+            this.columnHeader1.Width = 96;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Mã Hợp Đồng";
+            this.columnHeader2.Width = 102;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Mã Khách Hàng";
+            this.columnHeader3.Width = 113;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Tên Khách Hàng";
+            this.columnHeader4.Width = 135;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "SCMND";
+            this.columnHeader5.Width = 102;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Mã Xe";
+            this.columnHeader6.Width = 74;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Tên Xe";
+            this.columnHeader7.Width = 172;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Hãng Xe";
+            this.columnHeader8.Width = 140;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Ngày Lập Hóa Đơn";
+            this.columnHeader9.Width = 121;
+            // 
+            // txtTongTien
+            // 
+            this.txtTongTien.Location = new System.Drawing.Point(840, 14);
+            this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.Size = new System.Drawing.Size(195, 22);
+            this.txtTongTien.TabIndex = 3;
+            this.txtTongTien.Text = "0 đ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(761, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Tổng Tiền";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Tiền Thuê";
+            // 
             // fadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -283,9 +379,9 @@ namespace DoAn
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
             this.tabPage1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBill)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_oto)).EndInit();
             this.ResumeLayout(false);
@@ -295,7 +391,6 @@ namespace DoAn
         #endregion
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridViewBill;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_view_bill;
         private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
@@ -318,5 +413,18 @@ namespace DoAn
         private System.Windows.Forms.DataGridView dataGridView_oto;
         private System.Windows.Forms.Button btn_findoto;
         private System.Windows.Forms.TextBox txt_inputoto;
+        private System.Windows.Forms.ListView lsvHoaDon;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtTongTien;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
     }
 }

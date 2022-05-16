@@ -51,7 +51,7 @@ namespace DoAn.DAO
         public List<DTO.KhachHang> FindNameKH(string tenkh)
         {
             List<DTO.KhachHang> khachHangs = new List<DTO.KhachHang>();
-            DataTable data = DAO.DataProvider.Instance.ExecuteQuery($"select * from KHACHHANG where TenKhachHang like '%{tenkh.Trim()}%'");
+            DataTable data = DAO.DataProvider.Instance.ExecuteQuery($"select * from KHACHHANG where TenKhachHang like N'%{tenkh.Trim()}%'");
             foreach (DataRow item in data.Rows)
             {
                 DTO.KhachHang khacHangItem = new DTO.KhachHang(item);
